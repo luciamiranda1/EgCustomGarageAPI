@@ -1,0 +1,11 @@
+/Users/estanislaogonzalez/Desktop/EgcustomGarageAPI/src/Domain/bin/Debug/net9.0/Domain.deps.json
+/Users/estanislaogonzalez/Desktop/EgcustomGarageAPI/src/Domain/bin/Debug/net9.0/Domain.dll
+/Users/estanislaogonzalez/Desktop/EgcustomGarageAPI/src/Domain/bin/Debug/net9.0/Domain.pdb
+/Users/estanislaogonzalez/Desktop/EgcustomGarageAPI/src/Domain/obj/Debug/net9.0/Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/estanislaogonzalez/Desktop/EgcustomGarageAPI/src/Domain/obj/Debug/net9.0/Domain.AssemblyInfoInputs.cache
+/Users/estanislaogonzalez/Desktop/EgcustomGarageAPI/src/Domain/obj/Debug/net9.0/Domain.AssemblyInfo.cs
+/Users/estanislaogonzalez/Desktop/EgcustomGarageAPI/src/Domain/obj/Debug/net9.0/Domain.csproj.CoreCompileInputs.cache
+/Users/estanislaogonzalez/Desktop/EgcustomGarageAPI/src/Domain/obj/Debug/net9.0/Domain.dll
+/Users/estanislaogonzalez/Desktop/EgcustomGarageAPI/src/Domain/obj/Debug/net9.0/refint/Domain.dll
+/Users/estanislaogonzalez/Desktop/EgcustomGarageAPI/src/Domain/obj/Debug/net9.0/Domain.pdb
+/Users/estanislaogonzalez/Desktop/EgcustomGarageAPI/src/Domain/obj/Debug/net9.0/ref/Domain.dll
