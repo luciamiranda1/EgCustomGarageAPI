@@ -18,6 +18,10 @@ builder.Configuration["ConnectionStrings:DBConnectionString"], b => b.Migrations
 
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>(); // repo
 builder.Services.AddScoped<CategoryService>();
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<ProductService>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<UserService>();
 
 var app = builder.Build();
 

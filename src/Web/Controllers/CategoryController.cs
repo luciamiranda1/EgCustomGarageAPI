@@ -28,10 +28,10 @@ namespace Web.Controllers
             {
                 Id = c.Id,
                 Name = c.Name,
-                Products = c.Product.Select(p => new ProductDto
+                Products = c.Products.Select(p => new ProductDto
                 {
                     Id = p.Id,
-                    Title = p.Name,     // mapeo desde entidad
+                    Name = p.Name,     // mapeo desde entidad
                     Price = p.Price,
                     Stock = p.Stock,
                     CategoryName = c.Name
@@ -52,10 +52,10 @@ namespace Web.Controllers
             {
                 Id = category.Id,
                 Name = category.Name,
-                Products = category.Product.Select(p => new ProductDto
+                Products = category.Products.Select(p => new ProductDto
                 {
                     Id = p.Id,
-                    Title = p.Name,
+                    Name = p.Name,
                     Price = p.Price,
                     Stock = p.Stock,
                     CategoryName = category.Name

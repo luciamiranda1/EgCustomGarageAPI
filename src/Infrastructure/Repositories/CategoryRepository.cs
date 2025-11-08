@@ -19,7 +19,7 @@ namespace Infrastructure.Repositories
         public async Task<IEnumerable<Category>> GetAllAsync(bool includeDeleted = false)
         {
             var query = _context.Categories
-                .Include(c => c.Product)
+                .Include(c => c.Products)
                 .AsQueryable();
 
             if (!includeDeleted)
@@ -31,7 +31,7 @@ namespace Infrastructure.Repositories
         public async Task<Category?> GetByIdAsync(int id, bool includeDeleted = false)
         {
             var query = _context.Categories
-                .Include(c => c.Product)
+                .Include(c => c.Products)
                 .AsQueryable();
 
             if (!includeDeleted)

@@ -17,7 +17,7 @@ namespace Domain.Entities
 
         // Relación con productos
         [JsonIgnore]
-        public ICollection<Product> Product { get; set; } = new List<Product>();
+        public ICollection<Product> Products { get; set; } = new List<Product>();
 
     }
 }
