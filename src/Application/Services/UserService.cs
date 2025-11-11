@@ -1,6 +1,3 @@
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Application.Models;
 using Application.Models.Requests;
 using Domain.Entities;
@@ -17,6 +14,24 @@ namespace Application.Services
             _repository = repository;
         }
 
+        // === LOGIN ===
+        public async Task<UserModel?> CheckCredentialsAsync(CredentialsRequest credentials)
+        {
+            var user = await _repository.GetByNameAsync(credentials.Name, includeDeleted: false);
+            if (user is null) return null;
+
+            // Comparación simple (texto plano). Luego cambiá a BCrypt si querés.
+            if (user.Password != credentials.Password) return null;
+
+            return new UserModel
+            {
+                Id = user.Id,
+                Name = user.Name,
+                Email = user.Email,
+                Role = user.Role,
+                Password = string.Empty
+            };
+        }
         // === GET por nombre ===
         public async Task<UserModel?> GetAsync(string name, bool includeDeleted = false)
         {
@@ -28,7 +43,7 @@ namespace Application.Services
                 Id = user.Id,
                 Name = user.Name,
                 Email = user.Email,
-                Password = string.Empty, // no exponemos password
+                Password = string.Empty,
                 Role = user.Role
             };
         }
@@ -42,7 +57,7 @@ namespace Application.Services
                 Id = u.Id,
                 Name = u.Name,
                 Email = u.Email,
-                Password = string.Empty, // no exponemos password
+                Password = string.Empty,
                 Role = u.Role
             }).ToList();
         }
@@ -58,7 +73,7 @@ namespace Application.Services
                 Id = user.Id,
                 Name = user.Name,
                 Email = user.Email,
-                Password = string.Empty, // no exponemos password
+                Password = string.Empty,
                 Role = user.Role
             };
         }
@@ -88,25 +103,7 @@ namespace Application.Services
             };
 
             var created = await _repository.AddAsync(user);
-            return created.Id; // devolvemos el Id como en tu versión
-        }
-
-        // === LOGIN simple (por nombre) ===
-        public async Task<UserModel?> CheckCredentialsAsync(CredentialsRequest credentials)
-        {
-            var user = await _repository.GetByNameAsync(credentials.Name, includeDeleted: false);
-            if (user != null && user.Password == credentials.Password)
-            {
-                return new UserModel
-                {
-                    Id = user.Id,
-                    Name = user.Name,
-                    Email = user.Email,
-                    Role = user.Role,
-                    Password = string.Empty // no exponemos password
-                };
-            }
-            return null;
+            return created.Id;
         }
 
         // === DELETE (baja lógica) ===

@@ -7,7 +7,7 @@ namespace Web.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize] 
+    [Authorize] 
     public class UserController : ControllerBase
     {
         private readonly UserService _service;
@@ -16,8 +16,8 @@ namespace Web.Controllers
             _service = service;
         }
 
-        [HttpGet("{name}")]
-       // [Authorize(Roles = "Admin")]
+       [HttpGet("{name}")]
+       [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Get(string name)
         {
             var user = await _service.GetAsync(name);
@@ -26,7 +26,7 @@ namespace Web.Controllers
         }
 
         [HttpPut("{id}")]
-       // [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Update(int id, [FromBody] UserForUpdateRequest body)
         {
             var exists = await _service.GetByIdAsync(id, includeDeleted: true);
@@ -37,7 +37,7 @@ namespace Web.Controllers
         }
 
         [HttpGet]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Get([FromQuery] bool includeDeleted = false)
         {
             var users = await _service.GetAsync(includeDeleted);
@@ -45,15 +45,15 @@ namespace Web.Controllers
         }
 
         [HttpPost]
-        [AllowAnonymous] // importante para registrarse
+        [AllowAnonymous] 
         public async Task<IActionResult> Add([FromBody] UserForAddRequest body)
         {
             var id = await _service.AddUserAsync(body);
-            return Ok(id); // si querés: return CreatedAtAction(nameof(Get), new { name = body.Name }, id);
+            return Ok(id); 
         }
 
         [HttpDelete("{id}")]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int id)
         {
             await _service.DeleteAsync(id);
