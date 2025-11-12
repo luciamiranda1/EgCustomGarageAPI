@@ -1,5 +1,5 @@
 
-namespace Application.Models.Requests
+namespace Application.Models.Request
 {
     public class CredentialsRequest
     {

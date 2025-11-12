@@ -1,5 +1,5 @@
 
-namespace Application.Models
+namespace Application.Models.Response
 {
     public class CategoryDto
     {

@@ -2,7 +2,6 @@ using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-
 namespace Infrastructure
 {
     public class ApplicationContext : DbContext
@@ -14,7 +13,6 @@ namespace Infrastructure
 
         //Constructor
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options) { }
-
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) //genera las tablas y relaciones.
         {

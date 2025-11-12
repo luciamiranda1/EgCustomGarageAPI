@@ -1,5 +1,5 @@
-using Application.Models.Requests;
-using Application.Models;
+using Application.Models.Request;
+using Application.Models.Response;
 using Application.Services;
 using Domain.Entities;
 using Microsoft.AspNetCore.Authorization;
@@ -18,7 +18,7 @@ namespace Web.Controllers
             _categoryService = categoryService;
         }
 
-        //[Authorize(Roles = "Admin, Client")]
+        [Authorize(Roles = "Admin, Client")]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<CategoryDto>>> GetCategories([FromQuery] bool includeDeleted = false)
         {
@@ -41,7 +41,7 @@ namespace Web.Controllers
             return Ok(categoryDtos);
         }
 
-        //[Authorize(Roles = "Admin, Client")]
+        [Authorize(Roles = "Admin, Client")]
         [HttpGet("{id:int}")]
         public async Task<ActionResult<CategoryDto>> GetCategory(int id, [FromQuery] bool includeDeleted = false)
         {
@@ -65,7 +65,7 @@ namespace Web.Controllers
             return Ok(categoryDto);
         }
 
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<ActionResult<CategoryDto>> CreateCategory([FromBody] CreateCategoryRequest createDto)
         {
@@ -83,7 +83,7 @@ namespace Web.Controllers
             return CreatedAtAction(nameof(GetCategory), new { id = categoryDto.Id }, categoryDto);
         }
 
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [HttpPut("{id:int}")]
         public async Task<IActionResult> UpdateCategory(int id, [FromBody] CreateCategoryRequest updateDto)
         {
@@ -98,7 +98,7 @@ namespace Web.Controllers
             return NoContent();
         }
 
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeleteCategory(int id)
         {

@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using Domain.Entities;
 
-namespace Application.Models.Requests
+namespace Application.Models.Request
 {
     public class UserForUpdateRequest
     {

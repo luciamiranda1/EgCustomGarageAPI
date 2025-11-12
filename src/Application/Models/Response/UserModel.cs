@@ -1,7 +1,7 @@
 using System.Text.Json.Serialization;
 using Domain.Entities;
 
-namespace Application.Models
+namespace Application.Models.Response
 {
     public class UserModel
     {

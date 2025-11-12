@@ -1,5 +1,5 @@
-using Application.Models;
-using Application.Models.Requests;
+using Application.Models.Response;
+using Application.Models.Request;
 using Domain.Entities;
 using Domain.Interfaces;
 

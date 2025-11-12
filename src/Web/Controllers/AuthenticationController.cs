@@ -1,6 +1,6 @@
 using System.Text;
 using Application.Services;
-using Application.Models.Requests;
+using Application.Models.Request;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using System.IdentityModel.Tokens.Jwt;
