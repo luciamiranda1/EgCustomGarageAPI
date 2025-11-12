@@ -111,5 +111,17 @@ namespace Application.Services
         {
             await _repository.DeleteAsync(id);
         }
+
+        //cambiar role 
+        public async Task UpdateRoleAsync(int userId, UserRole role)
+        {
+            var user = await _repository.GetByIdAsync(userId);
+            if (user == null) throw new Exception("Usuario no encontrado.");
+
+            user.Role = role;
+            await _repository.UpdateAsync(user);
+        }
+
     }
+    
 }

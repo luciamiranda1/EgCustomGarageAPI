@@ -85,7 +85,7 @@ app.UseExceptionHandler(errorApp =>
             var response = new
             {
                 message = "Ocurrió un error inesperado en el servidor.",
-                detail = error.Error.Message // ?? en producción podés quitar esto para no mostrar detalles internos
+                detail = error.Error.Message 
             };
             await context.Response.WriteAsJsonAsync(response);
         }
