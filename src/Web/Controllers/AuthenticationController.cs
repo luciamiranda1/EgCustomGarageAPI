@@ -6,22 +6,22 @@ using System.Security.Claims;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.IdentityModel.Tokens;
 
-namespace Web.Controllers
+namespace Web.Controllers //indica donde esta ubicado el controlador
 {
-    [Route("api/[controller]")]
-    [ApiController]
+    [Route("api/[controller]")] //define la ruta base
+    [ApiController] //requiere rutas por atributos .
     public class AuthenticationController : ControllerBase
     {
-        private readonly UserService _userService;
-        private readonly IConfiguration _configuration;
+        private readonly UserService _userService;//dependencias
+        private readonly IConfiguration _configuration; //dependencias
 
-        public AuthenticationController(UserService userService, IConfiguration configuration)
+        public AuthenticationController(UserService userService, IConfiguration configuration) //constructor, donde ocurre la inyeccion de dep.
         {
             _userService = userService;
             _configuration = configuration;
         }
 
-        [HttpPost("login")]
+        [HttpPost("Login")]
         public async Task<IActionResult> Authenticate([FromBody] CredentialsRequest credentials)
         {
             var userLogged = await _userService.CheckCredentialsAsync(credentials);

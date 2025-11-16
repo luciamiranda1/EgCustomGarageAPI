@@ -17,16 +17,16 @@ namespace Web.Controllers
             _service = service;
         }
 
+        [Authorize(Roles = "Admin, Client")]
         [HttpGet]
-        //[Authorize(Roles = "Admin, Cliente")]
         public async Task<ActionResult<IEnumerable<ProductDto>>> GetAll([FromQuery] bool includeDeleted = false)
         {
             var products = await _service.GetAllAsync(includeDeleted);
             return Ok(products);
         }
 
+        [Authorize(Roles = "Admin, Client")]
         [HttpGet("{id:int}")]
-        //[Authorize(Roles = "Admin, Cliente")]
         public async Task<ActionResult<ProductDto>> GetById(int id, [FromQuery] bool includeDeleted = false)
         {
             var product = await _service.GetByIdAsync(id, includeDeleted);
@@ -36,7 +36,7 @@ namespace Web.Controllers
         }
 
         [HttpPost]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<ProductDto>> Create([FromBody] CreateProductRequest req)
         {
             var created = await _service.CreateAsync(req);
@@ -46,7 +46,7 @@ namespace Web.Controllers
         }
 
         [HttpPut("{id:int}")]
-       //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Update(int id, [FromBody] UpdateProductRequest req)
         {
             var ok = await _service.UpdateAsync(id, req);
@@ -55,7 +55,7 @@ namespace Web.Controllers
         }
 
         [HttpDelete("{id:int}")]
-       // [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int id)
         {
             var ok = await _service.DeleteAsync(id);

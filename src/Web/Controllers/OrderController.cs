@@ -14,7 +14,7 @@ namespace Web.Controllers
         public OrdersController(OrderService orderService) => _orderService = orderService;
 
         [HttpPost("create")]
-        [Authorize(Roles = "Cliente,Admin")]
+        [Authorize(Roles = "Client,Admin")]
         public async Task<IActionResult> CreateOrder([FromBody] OrderForAddRequest request)
         {
             try

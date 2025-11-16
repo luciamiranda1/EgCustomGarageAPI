@@ -43,8 +43,8 @@ builder.Services.AddSwaggerGen(setupAction =>
     });
 });
 
-builder.Services.AddAuthentication("Bearer") //"Bearer" es el tipo de auntenticaci?n que tenemos que elegir despu?s en PostMan para pasarle el token
-    .AddJwtBearer(options => //Aca definimos la configuraci?n de la autenticaci?n. le decimos qu? cosas queremos comprobar. La fecha de expiraci?n se valida por defecto.
+builder.Services.AddAuthentication("Bearer") 
+    .AddJwtBearer(options => 
     {
         options.TokenValidationParameters = new()
         {
@@ -121,6 +121,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseAuthorization();
 
 app.UseAuthorization();
 

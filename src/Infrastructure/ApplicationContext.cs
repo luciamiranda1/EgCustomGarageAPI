@@ -26,7 +26,7 @@ namespace Infrastructure
                 .HasOne(p => p.Category) //un producto tiene una categoría
                 .WithMany(c => c.Products) //una categoría tiene muchos productos
                 .HasForeignKey(p => p.CategoryId) //CategoryId es la clave foránea en la tabla Products.
-                .OnDelete(DeleteBehavior.Restrict); //si intentás borrar una categoría que tiene productos, te lo bloquea
+                .OnDelete(DeleteBehavior.Restrict); 
 
             // Order -> Product (N:1)
             modelBuilder.Entity<Order>()
@@ -37,8 +37,8 @@ namespace Infrastructure
 
             // Order -> User (N:1) (Client)
             modelBuilder.Entity<Order>()
-                .HasOne(o => o.Client)
-                .WithMany(u => u.Orders)
+                .HasOne(o => o.Client) //una order tiene un client
+                .WithMany(u => u.Orders) // un cliente puede tener varias ordenes 
                 .HasForeignKey(o => o.ClientId)
                 .OnDelete(DeleteBehavior.Restrict);
         }
