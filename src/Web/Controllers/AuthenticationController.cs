@@ -28,7 +28,7 @@ namespace Web.Controllers //indica donde esta ubicado el controlador
             if (userLogged is null) return Unauthorized();
 
             var secret = _configuration["Authentication:SecretForKey"]!;
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secret)); 
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secret)); //genero token
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             var claims = new List<Claim>

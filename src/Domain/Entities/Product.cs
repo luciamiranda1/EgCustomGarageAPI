@@ -18,7 +18,7 @@ namespace Domain.Entities
         public int Stock { get; set; }
         public bool IsDeleted { get; set; } = false; // baja lógica
 
-        // Relación con categoría
+        // Relación con categoría 
         public int CategoryId { get; set; }  // Foreign Key
         public Category? Category { get; set; }
 

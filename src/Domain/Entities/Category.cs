@@ -15,7 +15,7 @@ namespace Domain.Entities
         public required string Name { get; set; }
         public bool IsDeleted { get; set; } = false;
 
-        // Relación con productos
+        // Relación 1 a muchos, una cat puede tener muchos prods.
         [JsonIgnore]
         public ICollection<Product> Products { get; set; } = new List<Product>();
 

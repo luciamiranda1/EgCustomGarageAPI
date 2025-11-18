@@ -14,7 +14,7 @@ namespace Infrastructure
         //Constructor
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options) { }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder) //genera las tablas y relaciones.
+        protected override void OnModelCreating(ModelBuilder modelBuilder) //genera las relaciones.
         {
             // User.Role como string en DB
             modelBuilder.Entity<User>()
